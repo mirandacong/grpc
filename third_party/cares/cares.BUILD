@@ -131,6 +131,7 @@ cc_library(
         "ares_nowarn.h",
         "ares_platform.h",
         "ares_private.h",
+        "ares_strsplit.h",
         "ares_rules.h",
         "ares_setup.h",
         "ares_strcasecmp.h",

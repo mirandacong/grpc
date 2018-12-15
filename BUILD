@@ -423,11 +423,9 @@ grpc_cc_library(
         "src/compiler/ruby_generator_string-inl.h",
         "src/compiler/schema_interface.h",
     ],
-    external_deps = [
-        "protobuf_clib",
-    ],
     language = "c++",
     deps = [
+        "@com_google_protobuf//:protoc_lib",
         "grpc++_config_proto",
     ],
 )
@@ -962,12 +960,10 @@ grpc_cc_library(
         "src/core/lib/transport/transport_impl.h",
         "src/core/lib/uri/uri_parser.h",
     ],
-    external_deps = [
-        "zlib",
-    ],
     language = "c++",
     public_hdrs = GRPC_PUBLIC_HDRS,
     deps = [
+        "@logi//third_party/cc/zlib",
         "gpr_base",
         "grpc_codegen",
         "grpc_trace",
@@ -1215,8 +1211,8 @@ grpc_cc_library(
     hdrs = [
         "src/core/ext/filters/client_channel/health/health.pb.h",
     ],
-    external_deps = [
-        "nanopb",
+    deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
     ],
     language = "c++",
 )
@@ -1233,8 +1229,8 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/lb_policy/grpclb/proto/grpc/lb/v1/google/protobuf/timestamp.pb.h",
         "src/core/ext/filters/client_channel/lb_policy/grpclb/proto/grpc/lb/v1/load_balancer.pb.h",
     ],
-    external_deps = [
-        "nanopb",
+    deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
     ],
     language = "c++",
 )
@@ -1255,11 +1251,9 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/lb_policy/grpclb/grpclb_client_stats.h",
         "src/core/ext/filters/client_channel/lb_policy/grpclb/load_balancer_api.h",
     ],
-    external_deps = [
-        "nanopb",
-    ],
     language = "c++",
     deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
         "grpc_base",
         "grpc_client_channel",
         "grpc_resolver_fake",
@@ -1283,11 +1277,9 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/lb_policy/grpclb/grpclb_client_stats.h",
         "src/core/ext/filters/client_channel/lb_policy/grpclb/load_balancer_api.h",
     ],
-    external_deps = [
-        "nanopb",
-    ],
     language = "c++",
     deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
         "grpc_base",
         "grpc_client_channel",
         "grpc_resolver_fake",
@@ -1310,11 +1302,9 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/lb_policy/xds/xds_client_stats.h",
         "src/core/ext/filters/client_channel/lb_policy/xds/xds_load_balancer_api.h",
     ],
-    external_deps = [
-        "nanopb",
-    ],
     language = "c++",
     deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
         "grpc_base",
         "grpc_client_channel",
         "grpc_resolver_fake",
@@ -1336,11 +1326,9 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/lb_policy/xds/xds_client_stats.h",
         "src/core/ext/filters/client_channel/lb_policy/xds/xds_load_balancer_api.h",
     ],
-    external_deps = [
-        "nanopb",
-    ],
     language = "c++",
     deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
         "grpc_base",
         "grpc_client_channel",
         "grpc_resolver_fake",
@@ -1397,11 +1385,9 @@ grpc_cc_library(
         "src/core/ext/filters/load_reporting/server_load_reporting_filter.h",
         "src/cpp/server/load_reporter/constants.h",
     ],
-    external_deps = [
-        "opencensus-stats",
-    ],
     language = "c++",
     deps = [
+        "@io_opencensus_cpp//opencensus/stats:stats",
         "grpc++_base",
         "grpc_secure",
     ],
@@ -1493,11 +1479,9 @@ grpc_cc_library(
         "src/cpp/server/load_reporter/constants.h",
         "src/cpp/server/load_reporter/load_reporter.h",
     ],
-    external_deps = [
-        "opencensus-stats",
-    ],
     language = "c++",
     deps = [
+        "@io_opencensus_cpp//opencensus/stats:stats",
         "lb_get_cpu_stats",
         "lb_load_data_store",
         "//src/proto/grpc/lb/v1:load_reporter_proto",
@@ -1532,12 +1516,10 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/resolver/dns/c_ares/grpc_ares_ev_driver.h",
         "src/core/ext/filters/client_channel/resolver/dns/c_ares/grpc_ares_wrapper.h",
     ],
-    external_deps = [
-        "cares",
-        "address_sorting",
-    ],
     language = "c++",
     deps = [
+        "//third_party/address_sorting",
+        "@com_github_cares_cares//:ares",
         "grpc_base",
         "grpc_client_channel",
     ],
@@ -1898,11 +1880,9 @@ grpc_cc_library(
         "src/core/tsi/alts/zero_copy_frame_protector/alts_zero_copy_grpc_protector.h",
         "src/core/tsi/transport_security_grpc.h",
     ],
-    external_deps = [
-        "libssl",
-    ],
     language = "c++",
     deps = [
+        "@boringssl//:ssl",
         "gpr",
         "grpc_base",
         "grpc_shadow_boringssl",
@@ -1922,8 +1902,8 @@ grpc_cc_library(
         "src/core/tsi/alts/handshaker/handshaker.pb.h",
         "src/core/tsi/alts/handshaker/transport_security_common.pb.h",
     ],
-    external_deps = [
-        "nanopb",
+    deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
     ],
     language = "c++",
 )
@@ -1949,12 +1929,10 @@ grpc_cc_library(
         "src/core/tsi/alts/handshaker/alts_handshaker_service_api_util.h",
         "src/core/tsi/alts/handshaker/transport_security_common_api.h",
     ],
-    external_deps = [
-        "nanopb",
-    ],
     language = "c++",
     public_hdrs = GRPC_SECURE_PUBLIC_HDRS,
     deps = [
+        "@com_github_nanopb_nanopb//:nanopb",
         "alts_proto",
         "gpr",
         "grpc_base",
@@ -1990,11 +1968,9 @@ grpc_cc_library(
         "src/core/tsi/ssl_types.h",
         "src/core/tsi/transport_security_grpc.h",
     ],
-    external_deps = [
-        "libssl",
-    ],
     language = "c++",
     deps = [
+        "@boringssl//:ssl",
         "alts_frame_protector",
         "alts_util",
         "gpr",
@@ -2140,8 +2116,8 @@ grpc_cc_library(
 
 grpc_cc_library(
     name = "grpc++_config_proto",
-    external_deps = [
-        "protobuf_headers",
+    deps = [
+        "@com_google_protobuf//:protobuf_headers",
     ],
     language = "c++",
     public_hdrs = [
@@ -2255,14 +2231,12 @@ grpc_cc_library(
         "src/cpp/ext/filters/census/rpc_encoding.h",
         "src/cpp/ext/filters/census/server_filter.h",
     ],
-    external_deps = [
-        "absl-base",
-        "absl-time",
-        "opencensus-trace",
-        "opencensus-stats",
-    ],
     language = "c++",
     deps = [
+        "@io_opencensus_cpp//opencensus/stats:stats",
+        "@io_opencensus_cpp//opencensus/trace:trace",
+        "@com_google_absl//absl/base",
+        "@com_google_absl//absl/time",
         ":census",
         ":grpc++",
     ],

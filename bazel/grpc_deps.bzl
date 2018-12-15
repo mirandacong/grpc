@@ -63,12 +63,12 @@ def grpc_deps():
 
     native.bind(
         name = "gtest",
-        actual = "@com_github_google_googletest//:gtest",
+        actual = "@com_google_googletest//:gtest",
     )
 
     native.bind(
         name = "gmock",
-        actual = "@com_github_google_googletest//:gmock",
+        actual = "@com_google_googletest//:gmock",
     )
 
     native.bind(

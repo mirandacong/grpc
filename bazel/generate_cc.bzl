@@ -75,6 +75,9 @@ def generate_cc_impl(ctx):
       outputs = out_files,
       executable = ctx.executable._protoc,
       arguments = arguments,
+      # zhongming: This is a workaround to allow LogiOcean's clang-based
+      # toolchain, installed in /opt/clang to build py_proto_library() targets.
+      env = {'LD_LIBRARY_PATH': '/opt/clang/lib'},
   )
 
   return struct(files=depset(out_files))
@@ -103,7 +106,7 @@ _generate_cc = rule(
             mandatory = False,
         ),
         "_protoc": attr.label(
-            default = Label("//external:protocol_compiler"),
+            default = Label("@com_google_protobuf//:protoc"),
             executable = True,
             cfg = "host",
         ),

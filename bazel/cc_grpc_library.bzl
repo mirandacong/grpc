@@ -53,7 +53,7 @@ def cc_grpc_library(name, srcs, deps, proto_only, well_known_protos, generate_mo
         **kwargs
     )
     grpc_deps  = ["@com_github_grpc_grpc//:grpc++_codegen_proto",
-                  "//external:protobuf"]
+                  "@com_google_protobuf//:protobuf"]
     native.cc_library(
         name = name,
         srcs = [":" + codegen_grpc_target, ":" + codegen_target],
@@ -66,6 +66,6 @@ def cc_grpc_library(name, srcs, deps, proto_only, well_known_protos, generate_mo
         name = name,
         srcs = [":" + codegen_target],
         hdrs = [":" + codegen_target],
-        deps = deps + ["//external:protobuf"],
+        deps = deps + ["@com_google_protobuf//:protobuf"],
         **kwargs
     )
