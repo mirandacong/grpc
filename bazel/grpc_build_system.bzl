@@ -93,7 +93,11 @@ def grpc_cc_library(
                   }),
         hdrs = _maybe_update_cc_library_hdrs(hdrs + public_hdrs),
         deps = deps + _get_external_deps(external_deps),
-        copts = copts,
+        copts = copts + [
+            # Suppress common warnings from generated files.
+            '-Wno-unused-parameter',
+            '-Wno-deprecated-declarations',
+        ],
         visibility = visibility,
         testonly = testonly,
         linkopts = if_not_windows(["-pthread"]),
