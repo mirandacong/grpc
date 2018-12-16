@@ -124,7 +124,8 @@ def grpc_proto_library(
         well_known_protos = False,
         has_services = True,
         use_external = False,
-        generate_mocks = False):
+        generate_mocks = False,
+        **kwargs):
     cc_grpc_library(
         name = name,
         srcs = srcs,
@@ -133,6 +134,7 @@ def grpc_proto_library(
         proto_only = not has_services,
         use_external = use_external,
         generate_mocks = generate_mocks,
+        **kwargs
     )
 
 def grpc_cc_test(name, srcs = [], deps = [], external_deps = [], args = [], data = [], uses_polling = True, language = "C++", size = "medium", timeout = "moderate", tags = [], exec_compatible_with = []):
