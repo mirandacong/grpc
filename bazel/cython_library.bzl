@@ -58,7 +58,7 @@ def pyx_library(name, deps=[], py_deps=[], srcs=[], **kwargs):
         native.cc_binary(
             name=shared_object_name,
             srcs=[stem + ".cpp"],
-            deps=deps + ["@local_config_python//:python_headers"],
+            deps=deps + ["@local_config_python//:headers"],
             linkshared=1,
         )
         shared_objects.append(shared_object_name)
