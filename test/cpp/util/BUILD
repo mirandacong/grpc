@@ -29,11 +29,9 @@ grpc_cc_library(
     hdrs = [
         "test_config.h",
     ],
-    external_deps = [
-        "gflags",
-    ],
     deps = [
         "//:gpr",
+        "@com_github_gflags_gflags//:gflags",
     ],
 )
 
@@ -131,15 +129,13 @@ grpc_cc_library(
         "proto_file_parser.h",
         "service_describer.h",
     ],
-    external_deps = [
-        "gflags",
-        "protobuf",
-        "protobuf_clib",
-    ],
     deps = [
         ":grpc++_proto_reflection_desc_db",
         "//:grpc++",
         "//src/proto/grpc/reflection/v1alpha:reflection_proto",
+        "@com_github_gflags_gflags//:gflags",
+        "@com_google_protobuf//:protobuf",
+        "@com_google_protobuf//:protoc_lib",
     ],
 )
 
@@ -151,11 +147,9 @@ grpc_cc_library(
     hdrs = [
         "grpc_tool.h",
     ],
-    external_deps = [
-        "gflags",
-    ],
     deps = [
         ":grpc_cli_utils",
+        "@com_github_gflags_gflags//:gflags",
     ],
 )
 
@@ -288,14 +282,12 @@ grpc_cc_binary(
     srcs = [
         "grpc_cli.cc",
     ],
-    external_deps = [
-        "gflags",
-    ],
     deps = [
         ":grpc_cli_libs",
         ":grpc++_proto_reflection_desc_db",
         ":test_config",
         "//:grpc++",
         "//src/proto/grpc/reflection/v1alpha:reflection_proto",
+        "@com_github_gflags_gflags//:gflags",
     ],
 )
