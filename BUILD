@@ -66,9 +66,9 @@ config_setting(
 # This should be updated along with build.yaml
 g_stands_for = "goose"
 
-core_version = "7.0.0-dev"
+core_version = "7.0.0"
 
-version = "1.18.0-dev"
+version = "1.18.0"
 
 GPR_PUBLIC_HDRS = [
     "include/grpc/support/alloc.h",
@@ -244,10 +244,13 @@ GRPCXX_PUBLIC_HDRS = [
     "include/grpcpp/support/byte_buffer.h",
     "include/grpcpp/support/channel_arguments.h",
     "include/grpcpp/support/client_callback.h",
+    "include/grpcpp/support/client_interceptor.h",
     "include/grpcpp/support/config.h",
+    "include/grpcpp/support/interceptor.h",
     "include/grpcpp/support/proto_buffer_reader.h",
     "include/grpcpp/support/proto_buffer_writer.h",
     "include/grpcpp/support/server_callback.h",
+    "include/grpcpp/support/server_interceptor.h",
     "include/grpcpp/support/slice.h",
     "include/grpcpp/support/status.h",
     "include/grpcpp/support/status_code_enum.h",
@@ -1049,6 +1052,7 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/parse_address.cc",
         "src/core/ext/filters/client_channel/proxy_mapper.cc",
         "src/core/ext/filters/client_channel/proxy_mapper_registry.cc",
+        "src/core/ext/filters/client_channel/request_routing.cc",
         "src/core/ext/filters/client_channel/resolver.cc",
         "src/core/ext/filters/client_channel/resolver_registry.cc",
         "src/core/ext/filters/client_channel/resolver_result_parsing.cc",
@@ -1072,6 +1076,7 @@ grpc_cc_library(
         "src/core/ext/filters/client_channel/parse_address.h",
         "src/core/ext/filters/client_channel/proxy_mapper.h",
         "src/core/ext/filters/client_channel/proxy_mapper_registry.h",
+        "src/core/ext/filters/client_channel/request_routing.h",
         "src/core/ext/filters/client_channel/resolver.h",
         "src/core/ext/filters/client_channel/resolver_factory.h",
         "src/core/ext/filters/client_channel/resolver_registry.h",

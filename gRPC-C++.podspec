@@ -23,15 +23,15 @@
 Pod::Spec.new do |s|
   s.name     = 'gRPC-C++'
   # TODO (mxyan): use version that match gRPC version when pod is stabilized
-  # version = '1.18.0-dev'
-  version = '0.0.6-dev'
+  # version = '1.18.0'
+  version = '0.0.6'
   s.version  = version
   s.summary  = 'gRPC C++ library'
   s.homepage = 'https://grpc.io'
   s.license  = 'Apache License, Version 2.0'
   s.authors  = { 'The gRPC contributors' => 'grpc-packages@google.com' }
 
-  grpc_version = '1.18.0-dev'
+  grpc_version = '1.18.0'
 
   s.source = {
     :git => 'https://github.com/grpc/grpc.git',
@@ -116,10 +116,13 @@ Pod::Spec.new do |s|
                       'include/grpcpp/support/byte_buffer.h',
                       'include/grpcpp/support/channel_arguments.h',
                       'include/grpcpp/support/client_callback.h',
+                      'include/grpcpp/support/client_interceptor.h',
                       'include/grpcpp/support/config.h',
+                      'include/grpcpp/support/interceptor.h',
                       'include/grpcpp/support/proto_buffer_reader.h',
                       'include/grpcpp/support/proto_buffer_writer.h',
                       'include/grpcpp/support/server_callback.h',
+                      'include/grpcpp/support/server_interceptor.h',
                       'include/grpcpp/support/slice.h',
                       'include/grpcpp/support/status.h',
                       'include/grpcpp/support/status_code_enum.h',
@@ -352,6 +355,7 @@ Pod::Spec.new do |s|
                       'src/core/ext/filters/client_channel/parse_address.h',
                       'src/core/ext/filters/client_channel/proxy_mapper.h',
                       'src/core/ext/filters/client_channel/proxy_mapper_registry.h',
+                      'src/core/ext/filters/client_channel/request_routing.h',
                       'src/core/ext/filters/client_channel/resolver.h',
                       'src/core/ext/filters/client_channel/resolver_factory.h',
                       'src/core/ext/filters/client_channel/resolver_registry.h',
